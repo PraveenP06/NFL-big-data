@@ -77,7 +77,7 @@ For a single comparison, the chance our test would flag a real extra effect:
 
 | True extra R-squared | 0.05 | 0.10 | 0.15 | 0.20 | 0.30 |
 |---|---|---|---|---|---|
-| Chance of detecting (OL) | 2 to 5% | 15 to 17% | 23 to 33% | 42 to 53% | 72 to 76% |
+| Chance of detecting (OL) | 2 to 5% | 15 to 17% | 23 to 29% | 42 to 53% | 72 to 76% |
 
 With 103 players we could only find fairly large effects.
 
