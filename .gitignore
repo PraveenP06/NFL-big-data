@@ -6,3 +6,4 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 reports/cut_recovery_log.txt
+reports/dlol_log.txt
