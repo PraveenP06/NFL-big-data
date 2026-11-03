@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+from types import SimpleNamespace
+
 import numpy as np
 import pandas as pd
+import pytest
+import statsmodels.api as sm
 
 from combine_dlol.reliability import (
     adjusted_residuals,
@@ -79,3 +83,32 @@ def test_adjustment_and_verdict_thresholds() -> None:
     assert verdict(0.49, 0.90) == "weak"
     assert verdict(0.80, 0.29) == "weak"
     assert verdict(0.29, 0.90) == "poor"
+
+
+def test_mixed_model_icc_rejects_false_boundary_fit_from_one_optimizer(monkeypatch: pytest.MonkeyPatch) -> None:
+    data = _planted_data()
+    real_fit = sm.MixedLM.fit
+
+    def flaky_fit(self: sm.MixedLM, *args: object, **kwargs: object) -> object:
+        result = real_fit(self, *args, **kwargs)
+        if kwargs.get("method") != "lbfgs":
+            return result
+        return SimpleNamespace(
+            cov_re=np.zeros((1, 1)), scale=float(result.scale), converged=True, llf=float(result.llf) - 50.0
+        )
+
+    honest = mixed_model_icc(data, "player", "value")
+    monkeypatch.setattr(sm.MixedLM, "fit", flaky_fit)
+    repaired = mixed_model_icc(data, "player", "value")
+    assert honest.icc > 0.3
+    assert repaired.icc == pytest.approx(honest.icc, rel=1e-3)
+
+
+def test_empirical_bayes_keeps_player_differences_when_variance_is_small_but_real() -> None:
+    rng = np.random.default_rng(5)
+    players = np.repeat(np.arange(60), 300)
+    effects = rng.normal(0.0, 0.034, 60)
+    values = np.repeat(effects, 300) + rng.normal(0.0, 0.2175, len(players))
+    data = pd.DataFrame({"player": players, "value": values})
+    scores = empirical_bayes_shrink(data, "player", "value", mixed_model_icc(data, "player", "value"))
+    assert scores["posterior_mean"].std() > 0.01

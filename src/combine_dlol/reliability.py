@@ -128,21 +128,20 @@ def mixed_model_icc(residuals: pd.DataFrame, id_col: str, value_col: str) -> Mix
     response = data[value_col].to_numpy(dtype=float)
     groups = pd.factorize(data[id_col], sort=False)[0]
     model = sm.MixedLM(response, np.ones((len(data), 1)), groups=groups)
-    fitted: MixedLMResults | None = None
+    candidates: list[MixedLMResults] = []
     failures: list[Exception] = []
-    for method in ("lbfgs", "powell"):
+    for method in ("lbfgs", "powell", "bfgs"):
         try:
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
                 candidate = model.fit(reml=True, method=method, disp=False)
-            fitted = candidate
             if candidate.converged:
-                break
+                candidates.append(candidate)
         except (np.linalg.LinAlgError, ValueError) as error:
             failures.append(error)
-    if fitted is None:
+    if not candidates:
         raise RuntimeError(f"MixedLM did not fit: {failures}")
-    result = fitted
+    result = max(candidates, key=lambda fit: float(fit.llf))
     player_variance = max(float(np.asarray(result.cov_re)[0, 0]), 0.0)
     residual_variance = max(float(result.scale), 0.0)
     total = player_variance + residual_variance
