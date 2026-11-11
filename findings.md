@@ -100,6 +100,18 @@ Logged before listing. 28 tests across 18 predictor groups pass; this is roughly
 
 OL set_time_to_peak_speed is treated as "shorter is better"; that is an assumption, supported weakly by its links to snap reaction (+0.38) and pressure allowed (+0.13).
 
+## Large-sample check with free public data (Nov 11)
+
+Plan logged first (7 hypotheses from our leads, corrected together). Data: free nflverse files (Combine 2000-2026, draft and career stats, Pro Football Reference pass-rush and receiving rates from 2018, snap counts), repackaging Pro Football Reference data; official Combine numbers only (no sensor measures). 5,579 Combine players joined to career outcomes.
+
+- **Confirmed:** OL shuttle goes with more seasons started (n = 557, r = -0.14, about 0.26 more seasons per 0.1 s faster, interval 0.12 to 0.44, replicates in early and late draft years). It is about a third the size seen in the small tracking sample.
+- **Directionally confirmed, not enough after correction:** OL 40 time and seasons started (r = -0.10, Holm p = 0.07; games started r = -0.13, p = 0.0007); DL/edge broad jump and pressure rate (r = +0.13, Holm p = 0.11).
+- **Killed:** WR weight and WR vertical against yards per target (r near zero, wrong sign); DB broad jump and seasons started (r = -0.05, our small sample had +0.24); DL weight and pressure rate (sign flips between halves). The small-sample versions of these leads were likely noise or a different outcome.
+- **Draft slot matters:** the OL effects roughly halve once draft pick is controlled, because teams draft linemen on these numbers.
+- **Atlas (355 cells, 9 position groups incl. RB, QB, LB):** one survivor, OL 40 time and Pro Bowls (r = -0.145, q = 0.045). Of 26 nominal hits, 25 point the expected way. Nothing reliable for RB, QB, LB, CB or S. TE 40 time and All-Pro, and DL three-cone and career value, are leads.
+
+So the two OL results (40 and shuttle) are the best-supported speed-and-agility links we have: small, real, and partly priced into the draft.
+
 ## Suggested story for the writeup
 
 Game-side linemen measures can be built from tracking and are stable traits. The Combine's sensor data is sound but only a handful of its measures are repeatable traits. A big model finds no incremental link at n of about 100, and we say how large a sample would be needed. Simple, role-adjusted comparisons point to one real-looking signal for DL: how hard a lineman accelerates and bursts in the first stretch of the 40 goes with pass-rush disruption (hurries, pressures, tackles for loss), while the plain 40 time mostly reflects who plays edge. For OL no Combine measure lined up with how they play in games, although faster OL tend to start more games (a suggestive lead that keeps its sign in 2025). Across the WR/TE, DB and value scans, the only result that survives a global correction is a body-size effect for receivers, so the honest headline is a measurement and sample-size story with a few leads, not a set of confirmed Combine predictors.
