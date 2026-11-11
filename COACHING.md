@@ -206,6 +206,8 @@ Outcomes are context-adjusted player scores; "SD" is the spread of that score be
 - Short shuttle: n=30, cannot say. Three-cone: fewer than 30 WRs, not tested.
 - Left/right-side ability could not be tested. Each route drill is run to one side only (post-corner is the only drill with both sides, 65 players, and its top speed is not repeatable), and game outcomes were not split or stability-checked by side.
 
+Note on OL: the OL "prioritize" lines use time to peak set speed, where shorter is treated as better. That direction is an assumption (it tracks slower snap reaction at +0.38 and more pressure allowed at +0.13), so read those lines as weak.
+
 ## How not to misuse this
 - This is not a cut-or-keep tool and must not be used to evaluate an individual player.
 - Correlation is not causation. Training a trait is not shown to produce these differences; better players may simply test well, and teams with stronger programs may both train and play better.

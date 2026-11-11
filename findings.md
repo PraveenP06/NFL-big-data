@@ -85,6 +85,21 @@ Rule logged before listing: n at least 40, sensible direction, 95% interval excl
 9. DL back-pedal burst distance goes with a better get-off (r -0.41, n 50). Speculative.
 10. OL mirror-drill peak deceleration goes with first-half-second movement (r +0.33, 2025 +0.48); direction not yet labelled. Speculative.
 
+### Tier 2 (second fixed rule: p below 0.05, expected direction, 2025 same sign with |r| at least 0.15)
+
+Logged before listing. 28 tests across 18 predictor groups pass; this is roughly what chance alone would give across 3,709 tests, so treat these as hypotheses to confirm with more data, not findings.
+
+- NFL final score goes with receiver target rate and yards per route (r +0.23 to +0.27, 2025 +0.27).
+- OL faster 10-yard split and sensor 10-yard time go with more games started and snaps per game (r -0.25 to -0.27, 2025 -0.27 to -0.49); supports Tier 1 item 5.
+- DB broad jump goes with more games started and snaps per game (r +0.24, 2025 +0.36).
+- DL broad jump goes with a better get-off (r -0.24, 2025 -0.47).
+- DL run-the-hoop peak deceleration goes with a better first step (r -0.24, 2025 -0.27).
+- OL long-pull drill burst goes with deeper pass sets (r +0.27, 2025 +0.29).
+- OL screen-drill lateral speed goes with lower peak pressure allowed (r -0.24, 2025 -0.26).
+- DB back-pedal 45-degree burst goes with faster run-pursuit top speed (r +0.22, 2025 +0.27).
+
+OL set_time_to_peak_speed is treated as "shorter is better"; that is an assumption, supported weakly by its links to snap reaction (+0.38) and pressure allowed (+0.13).
+
 ## Suggested story for the writeup
 
 Game-side linemen measures can be built from tracking and are stable traits. The Combine's sensor data is sound but only a handful of its measures are repeatable traits. A big model finds no incremental link at n of about 100, and we say how large a sample would be needed. Simple, role-adjusted comparisons point to one real-looking signal for DL: how hard a lineman accelerates and bursts in the first stretch of the 40 goes with pass-rush disruption (hurries, pressures, tackles for loss), while the plain 40 time mostly reflects who plays edge. For OL no Combine measure lined up with how they play in games, although faster OL tend to start more games (a suggestive lead that keeps its sign in 2025). Across the WR/TE, DB and value scans, the only result that survives a global correction is a body-size effect for receivers, so the honest headline is a measurement and sample-size story with a few leads, not a set of confirmed Combine predictors.
