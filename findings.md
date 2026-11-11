@@ -70,6 +70,21 @@ After the first round we went back to data the earlier scans had left out: every
 
 **Master correction, updated (3,709 tests).** 246 tests have raw p below 0.05 against about 185 expected by chance. Only the two receiver body-size results survive the global correction (q = 0.017 and 0.038). The leads are the NFL production score for receiver targeting (global q = 0.11), the DL peak-acceleration link to pass-rush production and the OL faster-40 link to games started (q 0.2 to 0.4). The Combine data covers only DB, DL, OL, WR and TE; there are no LB, RB or QB players in it.
 
+## Correlation shortlist (fixed rule, no new tests)
+
+Rule logged before listing: n at least 40, sensible direction, 95% interval excludes 0, raw p below 0.01, and the 2025 class agrees in sign. Taken from the 3,709 existing tests. Only the first passes the global correction; the others are within-family or replicated leads. At p below 0.01, chance alone would give about 37 hits in 3,709 tests, so the ranking leans on replication in 2025 and on physical sense.
+
+1. Heavier WR/TE get less separation (r -0.40 to -0.45, 2025 about -0.54). Supported.
+2. NFL college-production score goes with receiver target rate (r +0.38) and yards per route (+0.34); 2025 about +0.5. Draft slot explains part of it. Suggestive, global q 0.11.
+3. DL run-and-club drill burst distance goes with hurry, pressure and rush-win rates (r +0.34, n 95, 2025 +0.34). Single-attempt drill. Suggestive.
+4. DL peak acceleration in the 40 goes with hurry, pressure and rush-win rates (r +0.36, n 77); weak in 2025. Suggestive.
+5. Faster OL 40, shuttle and drill time go with a higher share of games started and more snaps per game (r -0.33 to -0.42, 2025 about -0.47). Suggestive.
+6. DL short-zone-break burst speed goes with hurry, pressure and rush-win rates (r +0.49, n 50, no 2025 data). Speculative.
+7. DB gauntlet burst goes with run-pursuit peak speed (r +0.32, n 100, 2025 +0.21). Suggestive.
+8. Heavier DL are slower off the ball (r +0.26, 2025 +0.35). Suggestive and physically sensible.
+9. DL back-pedal burst distance goes with a better get-off (r -0.41, n 50). Speculative.
+10. OL mirror-drill peak deceleration goes with first-half-second movement (r +0.33, 2025 +0.48); direction not yet labelled. Speculative.
+
 ## Suggested story for the writeup
 
 Game-side linemen measures can be built from tracking and are stable traits. The Combine's sensor data is sound but only a handful of its measures are repeatable traits. A big model finds no incremental link at n of about 100, and we say how large a sample would be needed. Simple, role-adjusted comparisons point to one real-looking signal for DL: how hard a lineman accelerates and bursts in the first stretch of the 40 goes with pass-rush disruption (hurries, pressures, tackles for loss), while the plain 40 time mostly reflects who plays edge. For OL no Combine measure lined up with how they play in games, although faster OL tend to start more games (a suggestive lead that keeps its sign in 2025). Across the WR/TE, DB and value scans, the only result that survives a global correction is a body-size effect for receivers, so the honest headline is a measurement and sample-size story with a few leads, not a set of confirmed Combine predictors.
